@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpSpeed;
     public GameObject player;
     public LayerMask groundLayer;
+    public GameObject ground;
+    public bool isTouchingGround = false;
 
     private Rigidbody2D rb;
 
@@ -21,21 +23,19 @@ public class PlayerController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
         //float moveVertical = Input.GetAxis("Vertical");
 
-        Vector2 movement = new Vector2(moveHorizontal, 0.0f);
+        //Vector2 movement = new Vector2(moveHorizontal, 0.0f);
 
         //rb.AddForce (movement * speed);
         rb.velocity = new Vector2(moveHorizontal * speed, 0.0f);
 
 
-        bool touchingGround = Physics2D.OverlapPoint(player.transform.position, groundLayer);
-
         if (Input.GetKey(KeyCode.Space))
         {
 
-            if (touchingGround)
+            if (isTouchingGround)
             {
                 rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Force);
-                touchingGround = false;
+                isTouchingGround = false;
             }
         }
     }
