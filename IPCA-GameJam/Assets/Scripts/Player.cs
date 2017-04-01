@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speed = 50f;
     public float jumpPower = 250f;
     public bool grounded;
+	public bool jump, mover, movel;
     public int weather = 1; //1 - Quente, 2 - Frio
     public bool weatherDelay = false;
     public bool death = false;
@@ -16,16 +17,14 @@ public class Player : MonoBehaviour {
     public Vector2 checkp;
 
     private Rigidbody2D rb;
+    private Animator anim;
     public GameObject player;
-    //private Animator anim;
 
 
     void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //player = gameObject.GetComponentInParent<Player>();
-       // checkp = gameObject.GetComponent<CheckpointsCheck>().checkpoint;
-        //anim = gameObject.GetComponent<Animator>();
-    }
+        anim = gameObject.GetComponent<Animator>();
+	}
 	
 
 	void Update () {
@@ -71,6 +70,9 @@ public class Player : MonoBehaviour {
 
         }
 
+		anim.SetBool("jump", jump);
+		anim.SetBool("mover", mover);
+		anim.SetBool("movel", movel);
                 
         if (Input.GetButtonDown("Jump") && grounded)
         {
@@ -100,14 +102,24 @@ public class Player : MonoBehaviour {
 
         rb.AddForce(Vector2.right * speed * moveHorizontal);
 
-        if (rb.velocity.x > maxSpeed)
-        {
-            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-        }
+		if (rb.velocity.x < 0) {
+			movel = true;
+			if (rb.velocity.x < -maxSpeed)
+				rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+		}
 
-        if (rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        }
+		else
+			movel = false;
+
+		if (rb.velocity.x > 0) {
+			mover = true;
+			if (rb.velocity.x > maxSpeed)
+				rb.velocity = new Vector2 (maxSpeed, rb.velocity.y);
+		}
+
+		else
+			mover = false;
+
+        
     }
 }
