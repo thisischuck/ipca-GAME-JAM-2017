@@ -14,6 +14,19 @@ public class Player : MonoBehaviour {
     public int weatherCounter = 0;
     public int weatherWait;
 
+    public bool showE;
+    public bool showASDF;
+    public bool showClosed;
+    public bool showIPush;
+    public bool showItSays;
+    public bool showPull;
+
+    public bool hasGlasses;
+
+    public bool firstLine = true;
+
+    public bool finishLevel = false;
+
     private Rigidbody2D rb;
     //private Animator anim;
 
@@ -98,6 +111,125 @@ public class Player : MonoBehaviour {
             {
                 weather = 2;
                 weatherCounter = weatherWait;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Interagir
+        if (other.gameObject.tag.Equals("E")) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showE == false) {
+                    showE = true;
+                    showASDF = false;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                }else
+                {
+                    showE = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Sign") && !hasGlasses)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showASDF == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                }
+                else
+                {
+                    showASDF = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Door") && !hasGlasses && !firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showClosed == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                    firstLine = true;
+                }
+                else
+                {
+                    showClosed = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Door") && !hasGlasses && firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showIPush == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                    firstLine = false;
+                }
+                else
+                {
+                    showIPush = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Sign") && hasGlasses && firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showItSays == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                    firstLine = false;
+                }
+                else
+                {
+                    showItSays = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Sign") && hasGlasses && !firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showPull == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                }
+                else
+                {
+                    finishLevel = true;
+                }
             }
         }
     }
