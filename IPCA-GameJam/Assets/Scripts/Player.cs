@@ -11,6 +11,8 @@ public class Player : MonoBehaviour {
     public bool grounded;
     public int weather = 1; //1 - Quente, 2 - Frio
     public bool weatherDelay = false;
+    public int weatherCounter = 0;
+    public int weatherWait;
 
     private Rigidbody2D rb;
     //private Animator anim;
@@ -36,28 +38,7 @@ public class Player : MonoBehaviour {
             transform.localScale = new Vector3(1, 1, 1);
         }*/
 
-        if ((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z)) && !weatherDelay)
-        {
-            if (weather != 1)
-            {
-                weather = 1;
-                Delay();
-                
-            }
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X) && !weatherDelay)
-        {
-            if (weather != 2)
-            {
-                weather = 2;
-                Delay();
-            }
-
-        }
-
-                
+                        
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(Vector2.up * jumpPower);
@@ -65,11 +46,17 @@ public class Player : MonoBehaviour {
     }
 
 
-    IEnumerator Delay()
+    void DelayChange()
     {
-        weatherDelay = true;
-        yield return new WaitForSecondsRealtime(2f);
-        weatherDelay = false;
+
+        if (weatherCounter == 0)
+        {
+            weatherDelay = false;
+        }
+        else
+        {
+            weatherDelay = true;
+        }
     }
 
 
@@ -87,6 +74,31 @@ public class Player : MonoBehaviour {
         if (rb.velocity.x < -maxSpeed)
         {
             rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+        }
+
+        //Change Wheather
+        if (weatherCounter > 0)
+            weatherCounter--;
+
+        DelayChange();
+
+        if ((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z)) && !weatherDelay)
+        {
+            if (weather != 1)
+            {
+                weather = 1;
+                weatherCounter = weatherWait;
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X) && !weatherDelay)
+        {
+            if (weather != 2)
+            {
+                weather = 2;
+                weatherCounter = weatherWait;
+            }
         }
     }
 }
