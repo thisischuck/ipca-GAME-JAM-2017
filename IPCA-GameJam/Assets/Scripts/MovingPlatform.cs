@@ -18,7 +18,6 @@ public class MovingPlatform : MonoBehaviour {
 	private void OnTriggerEnter2D(Collider2D collision){
 		if (collision.gameObject.name.Equals ("collider")) {
 			gameObject.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (-400, 0));
-			Debug.Log ("#triggerd");
 	}
 		else if (collision.gameObject.name.Equals("fundo (1)"))
 			gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(400, 0));

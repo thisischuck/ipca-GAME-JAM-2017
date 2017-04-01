@@ -82,7 +82,7 @@ public class Player : MonoBehaviour {
 
         DelayChange();
 
-        if ((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z)) && !weatherDelay)
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z))
         {
             if (weather != 1)
             {
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour {
 
         }
 
-        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X) && !weatherDelay)
+        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
         {
             if (weather != 2)
             {
