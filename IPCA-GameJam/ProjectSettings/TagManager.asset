@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Mushroom
   - Collider
+  - E
+  - Door
+  - Sign
   layers:
   - Default
   - TransparentFX
