@@ -9,6 +9,8 @@ public class Player : MonoBehaviour {
     public float speed = 50f;
     public float jumpPower = 150f;
     public bool grounded;
+    public int weather = 1; //1 - Quente, 2 - Frio
+    public bool weatherDelay = false;
 
     private Rigidbody2D rb;
     //private Animator anim;
@@ -34,11 +36,40 @@ public class Player : MonoBehaviour {
             transform.localScale = new Vector3(1, 1, 1);
         }*/
 
+        if ((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z)) && !weatherDelay)
+        {
+            if (weather != 1)
+            {
+                weather = 1;
+                Delay();
+                
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X) && !weatherDelay)
+        {
+            if (weather != 2)
+            {
+                weather = 2;
+                Delay();
+            }
+
+        }
+
+                
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(Vector2.up * jumpPower);
         }
+    }
 
+
+    IEnumerator Delay()
+    {
+        weatherDelay = true;
+        yield return new WaitForSecondsRealtime(2f);
+        weatherDelay = false;
     }
 
 
