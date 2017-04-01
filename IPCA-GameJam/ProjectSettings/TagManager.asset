@@ -11,6 +11,7 @@ TagManager:
   - E
   - Door
   - Sign
+  - Death
   layers:
   - Default
   - TransparentFX
