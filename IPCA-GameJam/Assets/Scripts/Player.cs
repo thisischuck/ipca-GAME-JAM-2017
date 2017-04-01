@@ -14,14 +14,14 @@ public class Player : MonoBehaviour {
     public int weatherCounter = 0;
     public int weatherWait;
 
-    public bool showE;
-    public bool showASDF;
-    public bool showClosed;
-    public bool showIPush;
-    public bool showItSays;
-    public bool showPull;
+    public bool showE = false;
+    public bool showASDF = false;
+    public bool showClosed = false;
+    public bool showIPush = false;
+    public bool showItSays = false;
+    public bool showPull = false;
 
-    public bool hasGlasses;
+    public bool hasGlasses = false;
 
     public bool firstLine = true;
 
