@@ -1117,9 +1117,18 @@ MonoBehaviour:
   death: 0
   spawn: {x: 0, y: 0}
   checkp: {x: 0, y: 0}
-  player: {fileID: 787438285}
   weatherCounter: 0
   weatherWait: 10
+  showE: 0
+  showASDF: 0
+  showClosed: 0
+  showIPush: 0
+  showItSays: 0
+  showPull: 0
+  hasGlasses: 0
+  firstLine: 1
+  finishLevel: 0
+  player: {fileID: 787438285}
 --- !u!95 &787438289
 Animator:
   serializedVersion: 3

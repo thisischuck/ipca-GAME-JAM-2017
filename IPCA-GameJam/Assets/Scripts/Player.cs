@@ -69,7 +69,6 @@ public class Player : MonoBehaviour {
             if (weather != 1)
             {
                 weather = 1;
-                Delay();
                 
             }
 
@@ -80,7 +79,6 @@ public class Player : MonoBehaviour {
             if (weather != 2)
             {
                 weather = 2;
-                Delay();
             }
 
         }
