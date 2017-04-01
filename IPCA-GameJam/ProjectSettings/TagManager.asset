@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - Checkpoint
+  - Mushroom
+  - Collider
+  - E
+  - Door
+  - Sign
   layers:
   - Default
   - TransparentFX

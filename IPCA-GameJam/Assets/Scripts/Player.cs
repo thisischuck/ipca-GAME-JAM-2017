@@ -15,6 +15,21 @@ public class Player : MonoBehaviour {
     public bool death = false;
     public Vector2 spawn = new Vector2(0f, 0f);
     public Vector2 checkp;
+    public int weatherCounter = 0;
+    public int weatherWait;
+
+    public bool showE = false;
+    public bool showASDF = false;
+    public bool showClosed = false;
+    public bool showIPush = false;
+    public bool showItSays = false;
+    public bool showPull = false;
+
+    public bool hasGlasses = false;
+
+    public bool firstLine = true;
+
+    public bool finishLevel = false;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -88,11 +103,17 @@ public class Player : MonoBehaviour {
     }
 
 
-    IEnumerator Delay()
+    void DelayChange()
     {
-        weatherDelay = true;
-        yield return new WaitForSecondsRealtime(2f);
-        weatherDelay = false;
+
+        if (weatherCounter == 0)
+        {
+            weatherDelay = false;
+        }
+        else
+        {
+            weatherDelay = true;
+        }
     }
 
 
@@ -108,18 +129,153 @@ public class Player : MonoBehaviour {
 				rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
 		}
 
-		else
-			movel = false;
+        if (rb.velocity.x < -maxSpeed)
+        {
+            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+        }
 
-		if (rb.velocity.x > 0) {
-			mover = true;
-			if (rb.velocity.x > maxSpeed)
-				rb.velocity = new Vector2 (maxSpeed, rb.velocity.y);
-		}
+        //Change Wheather
+        if (weatherCounter > 0)
+            weatherCounter--;
 
-		else
-			mover = false;
+        DelayChange();
 
-        
+        if (Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z))
+        {
+            if (weather != 1)
+            {
+                weather = 1;
+                weatherCounter = weatherWait;
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X))
+        {
+            if (weather != 2)
+            {
+                weather = 2;
+                weatherCounter = weatherWait;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Interagir
+        if (other.gameObject.tag.Equals("E")) {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showE == false) {
+                    showE = true;
+                    showASDF = false;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                }else
+                {
+                    showE = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Sign") && !hasGlasses)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showASDF == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                }
+                else
+                {
+                    showASDF = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Door") && !hasGlasses && !firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showClosed == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                    firstLine = true;
+                }
+                else
+                {
+                    showClosed = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Door") && !hasGlasses && firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showIPush == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                    firstLine = false;
+                }
+                else
+                {
+                    showIPush = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Sign") && hasGlasses && firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showItSays == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                    firstLine = false;
+                }
+                else
+                {
+                    showItSays = false;
+                }
+            }
+        }
+        else if (other.gameObject.tag.Equals("Sign") && hasGlasses && !firstLine)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (showPull == false)
+                {
+                    showE = false;
+                    showASDF = true;
+                    showClosed = false;
+                    showIPush = false;
+                    showItSays = false;
+                    showPull = false;
+                }
+                else
+                {
+                    finishLevel = true;
+                }
+            }
+        }
     }
 }
