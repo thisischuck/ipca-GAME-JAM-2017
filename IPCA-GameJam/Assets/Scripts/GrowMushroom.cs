@@ -26,7 +26,7 @@ public class GrowMushroom : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Collider")
+        if(collision.gameObject.tag == "Collider" || collision.gameObject.tag == "Ground")
         speed = 0;
     }
 

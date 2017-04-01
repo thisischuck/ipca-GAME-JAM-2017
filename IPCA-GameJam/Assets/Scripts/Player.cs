@@ -74,8 +74,8 @@ public class Player : MonoBehaviour {
             if (weather != 1)
             {
                 weather = 1;
-                water.SetActive(false);
-                ice.SetActive(true);  
+                water.SetActive(true);
+                ice.SetActive(false);  
             }
 
         }
@@ -85,8 +85,8 @@ public class Player : MonoBehaviour {
             if (weather != 2)
             {
                 weather = 2;
-                water.SetActive(true);
-                ice.SetActive(false);
+                water.SetActive(false);
+                ice.SetActive(true);
             }
 
         }
