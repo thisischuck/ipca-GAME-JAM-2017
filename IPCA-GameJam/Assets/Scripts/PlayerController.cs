@@ -7,9 +7,7 @@ public class PlayerController : MonoBehaviour {
     public float speed;
     public float jumpSpeed;
     public GameObject player;
-    public LayerMask groundLayer;
-    public GameObject ground;
-    public bool isTouchingGround = false;
+    public bool isTouchingGround;
 
     private Rigidbody2D rb;
 
@@ -34,7 +32,7 @@ public class PlayerController : MonoBehaviour {
 
             if (isTouchingGround)
             {
-                rb.AddForce(Vector2.up * jumpSpeed, ForceMode2D.Force);
+                rb.AddForce(Vector2.up * jumpSpeed);
                 isTouchingGround = false;
             }
         }
