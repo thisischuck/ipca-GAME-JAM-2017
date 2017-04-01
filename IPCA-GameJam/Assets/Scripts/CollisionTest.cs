@@ -18,17 +18,5 @@ public class CollisionTest : MonoBehaviour {
 
     }
 
-    private void OnColliderEnter(Collider2D collision)  
-    {
-        if (collision.gameObject.tag.Equals("Player"))
-        {
-            Debug.Log("toca");
-            collision.gameObject.GetComponent<PlayerController>().isTouchingGround = true;
-        }
-        else
-        {
-            Debug.Log("toca");
-            collision.gameObject.GetComponent<PlayerController>().isTouchingGround = false;
-        }
-    }
+  
 }
