@@ -10,6 +10,7 @@ public class CheckpointsCheck : MonoBehaviour {
     void Start()
     {
         player = gameObject.GetComponentInParent<Player>();
+        checkpoint = new Vector2 (player.spawn.x, player.spawn.y);
         //checkpoint = gameObject.GetComponent<Player>().spawn;
     }
 

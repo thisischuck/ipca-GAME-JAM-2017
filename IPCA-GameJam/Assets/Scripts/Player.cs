@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
     public int weather = 1; //1 - Quente, 2 - Frio
     public bool weatherDelay = false;
     public bool death = false;
-    public Vector2 spawn = new Vector2(0f, 0f);
+    public Vector2 spawn;
     public Vector2 checkp;
     public int weatherCounter = 0;
     public int weatherWait;
@@ -39,7 +39,9 @@ public class Player : MonoBehaviour {
     void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-	}
+        spawn = new Vector2(-24f, 4.3f);
+
+    }
 	
 
 	void Update () {
