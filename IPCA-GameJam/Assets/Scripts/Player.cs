@@ -17,23 +17,23 @@ public class Player : MonoBehaviour {
     public Vector2 checkp;
     public int weatherCounter = 0;
     public int weatherWait;
-
     public bool showE = false;
     public bool showASDF = false;
     public bool showClosed = false;
     public bool showIPush = false;
     public bool showItSays = false;
     public bool showPull = false;
-
     public bool hasGlasses = false;
-
     public bool firstLine = true;
-
     public bool finishLevel = false;
+    public AudioClip deathRewind;
+    public AudioClip weatherToHot;
+    public AudioClip weatherToCold;
+    public GameObject player;
 
     private Rigidbody2D rb;
     private Animator anim;
-    public GameObject player;
+
 
 
     void Start () {
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour {
 
         if (death)
         {
-            Debug.Log(checkp);
+            SoundManager.instance.PlaySingle(deathRewind);
             player.gameObject.transform.position = checkp;
             death = false;
         }
@@ -143,6 +143,7 @@ public class Player : MonoBehaviour {
         {
             if (weather != 1)
             {
+                SoundManager.instance.PlaySingle(weatherToHot);
                 weather = 1;
                 weatherCounter = weatherWait;
             }
@@ -153,6 +154,7 @@ public class Player : MonoBehaviour {
         {
             if (weather != 2)
             {
+                SoundManager.instance.PlaySingle(weatherToCold);
                 weather = 2;
                 weatherCounter = weatherWait;
             }
