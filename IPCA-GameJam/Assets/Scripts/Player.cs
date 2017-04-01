@@ -117,20 +117,21 @@ public class Player : MonoBehaviour {
 
     void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+		float moveHorizontal = Input.GetAxis("Horizontal");
 
-        rb.AddForce(Vector2.right * speed * moveHorizontal);
+		rb.AddForce(Vector2.right * speed * moveHorizontal);
 
 		if (rb.velocity.x < 0) {
 			movel = true;
 			if (rb.velocity.x < -maxSpeed)
 				rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-		}
+		} else movel = false;
 
-        if (rb.velocity.x < -maxSpeed)
-        {
-            rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
-        }
+		if (rb.velocity.x > 0) {
+			mover = true;
+			if (rb.velocity.x > maxSpeed)
+				rb.velocity = new Vector2 (maxSpeed, rb.velocity.y);
+		} else mover = false;
 
         //Change Wheather
         if (weatherCounter > 0)
