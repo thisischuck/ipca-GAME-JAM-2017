@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 2c7e26739ba4c5b4cbd8adef1515b29a
-timeCreated: 1491047610
+timeCreated: 1491055996
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -95,10 +95,10 @@ TextureImporter:
       name: MovementNoGlasses_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 256
-        width: 128
-        height: 128
+        x: 52
+        y: 258
+        width: 62
+        height: 108
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,10 +108,10 @@ TextureImporter:
       name: MovementNoGlasses_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 174
         y: 256
-        width: 128
-        height: 128
+        width: 60
+        height: 110
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +121,10 @@ TextureImporter:
       name: MovementNoGlasses_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 128
-        width: 128
-        height: 128
+        x: 52
+        y: 132
+        width: 52
+        height: 106
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: MovementNoGlasses_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 142
+        y: 130
+        width: 62
+        height: 108
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,10 +147,10 @@ TextureImporter:
       name: MovementNoGlasses_4
       rect:
         serializedVersion: 2
-        x: 0
+        x: 22
         y: 0
-        width: 128
-        height: 128
+        width: 60
+        height: 110
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: MovementNoGlasses_5
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 128
+        x: 152
+        y: 4
+        width: 52
+        height: 106
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
