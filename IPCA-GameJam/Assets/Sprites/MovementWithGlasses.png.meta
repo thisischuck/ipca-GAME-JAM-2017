@@ -1,12 +1,15 @@
 fileFormatVersion: 2
-guid: 9521a7284d0352946a33d8d146b99db4
-timeCreated: 1491040711
+guid: 2e29a058e39ec464abd39b01bdeb2691
+timeCreated: 1491047617
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: MovementWithGlasses_0
     21300002: MovementWithGlasses_1
     21300004: MovementWithGlasses_2
+    21300006: MovementWithGlasses_3
+    21300008: MovementWithGlasses_4
+    21300010: MovementWithGlasses_5
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -93,7 +96,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 7
@@ -106,7 +109,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 256
         width: 128
         height: 128
       alignment: 7
@@ -119,6 +122,45 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MovementWithGlasses_3
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MovementWithGlasses_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: MovementWithGlasses_5
+      rect:
+        serializedVersion: 2
+        x: 128
         y: 0
         width: 128
         height: 128

@@ -901,6 +901,9 @@ MonoBehaviour:
   speed: 50
   jumpPower: 250
   grounded: 0
+  jump: 0
+  mover: 0
+  movel: 0
   weather: 1
   weatherDelay: 0
 --- !u!95 &787438289
