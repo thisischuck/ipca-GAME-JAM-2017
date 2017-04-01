@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float speed = 50f;
     public float jumpPower = 150f;
     public bool grounded;
+	public bool jump, mover, movel;
     public int weather = 1; //1 - Quente, 2 - Frio
     public bool weatherDelay = false;
     public int weatherCounter = 0;
@@ -28,12 +29,12 @@ public class Player : MonoBehaviour {
     public bool finishLevel = false;
 
     private Rigidbody2D rb;
-    //private Animator anim;
+    private Animator anim;
 
 
 	void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //anim = gameObject.GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
 	}
 	
 
@@ -51,11 +52,35 @@ public class Player : MonoBehaviour {
             transform.localScale = new Vector3(1, 1, 1);
         }*/
 
-                        
-        if (Input.GetButtonDown("Jump") && grounded)
+        if ((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z)) && !weatherDelay)
         {
-            rb.AddForce(Vector2.up * jumpPower);
+            if (weather != 1)
+            {
+                weather = 1;
+                Delay();
+                
+            }
+
         }
+
+        if (Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.X) && !weatherDelay)
+        {
+            if (weather != 2)
+            {
+                weather = 2;
+                Delay();
+            }
+
+        }
+
+		if (Input.GetButtonDown("Jump") && grounded)
+		{
+			rb.AddForce(Vector2.up * jumpPower);
+		}
+
+		anim.SetBool("jump", jump);
+		anim.SetBool("mover", mover);
+		anim.SetBool("movel", movel);
     }
 
 
@@ -79,10 +104,11 @@ public class Player : MonoBehaviour {
 
         rb.AddForce(Vector2.right * speed * moveHorizontal);
 
-        if (rb.velocity.x > maxSpeed)
-        {
-            rb.velocity = new Vector2(maxSpeed, rb.velocity.y);
-        }
+		if (rb.velocity.x < 0) {
+			movel = true;
+			if (rb.velocity.x < -maxSpeed)
+				rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+		}
 
         if (rb.velocity.x < -maxSpeed)
         {
