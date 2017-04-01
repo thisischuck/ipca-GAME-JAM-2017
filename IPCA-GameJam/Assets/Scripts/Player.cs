@@ -7,19 +7,25 @@ public class Player : MonoBehaviour {
 
     public float maxSpeed = 3;
     public float speed = 50f;
-    public float jumpPower = 150f;
+    public float jumpPower = 250f;
     public bool grounded;
     public int weather = 1; //1 - Quente, 2 - Frio
     public bool weatherDelay = false;
+    public bool death = false;
+    public Vector2 spawn = new Vector2(0f, 0f);
+    public Vector2 checkp;
 
     private Rigidbody2D rb;
+    public GameObject player;
     //private Animator anim;
 
 
-	void Start () {
+    void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        //player = gameObject.GetComponentInParent<Player>();
+       // checkp = gameObject.GetComponent<CheckpointsCheck>().checkpoint;
         //anim = gameObject.GetComponent<Animator>();
-	}
+    }
 	
 
 	void Update () {
@@ -35,6 +41,14 @@ public class Player : MonoBehaviour {
         {
             transform.localScale = new Vector3(1, 1, 1);
         }*/
+
+        checkp = player.GetComponent<CheckpointsCheck>().checkpoint;
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            death = true;
+        }
+
 
         if ((Input.GetKeyDown(KeyCode.J) || Input.GetKeyDown(KeyCode.Z)) && !weatherDelay)
         {
@@ -61,6 +75,13 @@ public class Player : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && grounded)
         {
             rb.AddForce(Vector2.up * jumpPower);
+        }
+
+        if (death)
+        {
+            Debug.Log(checkp);
+            player.gameObject.transform.position = checkp;
+            death = false;
         }
     }
 
