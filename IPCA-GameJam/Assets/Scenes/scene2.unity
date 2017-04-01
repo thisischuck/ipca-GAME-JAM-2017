@@ -286,8 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7406a4400a7b5044a944d90af3b6ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
   player: {fileID: 787438285}
+  water: {fileID: 2073401314}
+  ice: {fileID: 574689897}
 --- !u!212 &98171950
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1623,7 +1625,7 @@ MonoBehaviour:
   spawn: {x: 2, y: 0}
   checkp: {x: 0, y: 0}
   weatherCounter: 0
-  weatherWait: 10
+  weatherWait: 0
   showE: 0
   showASDF: 0
   showClosed: 0
@@ -1637,8 +1639,6 @@ MonoBehaviour:
   weatherToHot: {fileID: 8300000, guid: 2e6c9536fb8abb64988a08a0fc586d52, type: 3}
   weatherToCold: {fileID: 8300000, guid: 11bf49621374f73428e5bd16f1fd662c, type: 3}
   player: {fileID: 787438285}
-  water: {fileID: 2073401314}
-  ice: {fileID: 574689897}
 --- !u!95 &787438289
 Animator:
   serializedVersion: 3
@@ -2618,8 +2618,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7406a4400a7b5044a944d90af3b6ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
   player: {fileID: 787438285}
+  water: {fileID: 2073401314}
+  ice: {fileID: 574689897}
 --- !u!212 &1070524075
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4292,8 +4294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7406a4400a7b5044a944d90af3b6ece, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 10
   player: {fileID: 787438285}
+  water: {fileID: 2073401314}
+  ice: {fileID: 574689897}
 --- !u!212 &1542525625
 SpriteRenderer:
   m_ObjectHideFlags: 0

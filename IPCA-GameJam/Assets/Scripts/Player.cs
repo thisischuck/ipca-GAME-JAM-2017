@@ -30,8 +30,6 @@ public class Player : MonoBehaviour {
     public AudioClip weatherToHot;
     public AudioClip weatherToCold;
     public GameObject player;
-    public GameObject water;
-    public GameObject ice;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -42,7 +40,6 @@ public class Player : MonoBehaviour {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         spawn = new Vector2(-20f, 0f);
-        ice.SetActive(false);
 
     }
 	
@@ -74,8 +71,6 @@ public class Player : MonoBehaviour {
             if (weather != 1)
             {
                 weather = 1;
-                water.SetActive(true);
-                ice.SetActive(false);  
             }
 
         }
@@ -85,8 +80,6 @@ public class Player : MonoBehaviour {
             if (weather != 2)
             {
                 weather = 2;
-                water.SetActive(false);
-                ice.SetActive(true);
             }
 
         }
