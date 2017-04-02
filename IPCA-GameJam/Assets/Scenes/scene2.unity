@@ -2111,7 +2111,7 @@ MonoBehaviour:
   firstLine: 1
   finishLevel: 0
   deathRewind: {fileID: 8300000, guid: b3de6408801181342ad47f6392a0113a, type: 3}
-  weatherToHot: {fileID: 8300000, guid: 2e6c9536fb8abb64988a08a0fc586d52, type: 3}
+  weatherToHot: {fileID: 8300000, guid: e0a5d999f160c024195a89c5c112a8a1, type: 3}
   weatherToCold: {fileID: 8300000, guid: 11bf49621374f73428e5bd16f1fd662c, type: 3}
   player: {fileID: 787438285}
 --- !u!95 &787438289
@@ -4691,7 +4691,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -4771,7 +4771,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
