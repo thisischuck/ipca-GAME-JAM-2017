@@ -21,6 +21,6 @@ public class EndMePlz : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Player"))
             if (Input.GetKey(KeyCode.E))
-                Application.Quit();
+                SceneManager.LoadScene(2);
     }
 }
