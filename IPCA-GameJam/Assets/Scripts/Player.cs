@@ -8,8 +8,7 @@ public class Player : MonoBehaviour {
     public float maxSpeed = 3;
     public float speed = 50f;
     public float jumpPower = 250f;
-    public bool grounded;
-	public bool jump, mover, movel;
+	public bool grounded, jumpr, jumpl, mover, movel;
     public int weather = 1; //1 - Quente, 2 - Frio
     public bool weatherDelay = false;
     public bool death = false;
@@ -84,14 +83,15 @@ public class Player : MonoBehaviour {
 
         }
 
-		anim.SetBool("jump", jump);
+		anim.SetBool("jumpr", jumpr);
+		anim.SetBool("jumpl", jumpl);
 		anim.SetBool("mover", mover);
 		anim.SetBool("movel", movel);
-                
-        if (Input.GetButtonDown("Jump") && grounded)
-        {
-            rb.AddForce(Vector2.up * jumpPower);
-        }
+
+		if (Input.GetButtonDown ("Jump") && grounded) {
+			jumpr = true;
+			rb.AddForce (Vector2.up * jumpPower);
+		} else jumpr = false;
 
         if (death)
         {
@@ -125,13 +125,21 @@ public class Player : MonoBehaviour {
 		if (rb.velocity.x < 0) {
 			movel = true;
 			if (rb.velocity.x < -maxSpeed)
-				rb.velocity = new Vector2(-maxSpeed, rb.velocity.y);
+				rb.velocity = new Vector2 (-maxSpeed, rb.velocity.y);
+			if (Input.GetButtonDown ("Jump") && grounded) {
+				jumpl = true;
+				rb.AddForce (Vector2.up * jumpPower);
+			} else jumpl = false;
 		} else movel = false;
 
 		if (rb.velocity.x > 0) {
 			mover = true;
 			if (rb.velocity.x > maxSpeed)
 				rb.velocity = new Vector2 (maxSpeed, rb.velocity.y);
+			if (Input.GetButtonDown ("Jump") && grounded) {
+				jumpr = true;
+				rb.AddForce (Vector2.up * jumpPower);
+			} else jumpr = false;
 		} else mover = false;
 
         //Change Wheather
