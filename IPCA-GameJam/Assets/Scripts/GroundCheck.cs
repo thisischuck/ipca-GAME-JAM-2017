@@ -14,16 +14,17 @@ public class GroundCheck : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (!col.gameObject.tag.Equals("Checkpoint"))
+        //!col.gameObject.tag.Equals("Checkpoint") && !col.gameObject.tag.Equals("Door") &&
+        if ( (col.gameObject.tag.Equals("Mushroom") || col.gameObject.tag.Equals("Ground")))
         {
             player.grounded = true;
         }
-
+            
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (!col.gameObject.tag.Equals("Checkpoint"))
+        if((col.gameObject.tag.Equals("Mushroom") || col.gameObject.tag.Equals("Ground")))
         {
             player.grounded = true;
         }
@@ -31,7 +32,7 @@ public class GroundCheck : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (!col.gameObject.tag.Equals("Checkpoint"))
+        if((col.gameObject.tag.Equals("Mushroom") || col.gameObject.tag.Equals("Ground")))
         {
             player.grounded = false;
         }
