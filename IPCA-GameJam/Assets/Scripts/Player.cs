@@ -33,8 +33,6 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rb;
     private Animator anim;
 
-
-
     void Start () {
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
@@ -87,6 +85,7 @@ public class Player : MonoBehaviour {
 		anim.SetBool("jumpl", jumpl);
 		anim.SetBool("mover", mover);
 		anim.SetBool("movel", movel);
+		anim.SetBool("glasses", hasGlasses);
 
 		if (Input.GetButtonDown ("Jump") && grounded) {
 			jumpr = true;

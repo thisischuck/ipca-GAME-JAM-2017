@@ -24,9 +24,8 @@ public class Glasses : MonoBehaviour {
             {
                 player.GetComponent<Player>().hasGlasses = true;
                 gameObject.SetActive(false);
-            sign_desfocado.SetActive(false);
-            sign_focado.SetActive(true);
-
+	            sign_desfocado.SetActive(false);
+	            sign_focado.SetActive(true);
             }
     }
 }
