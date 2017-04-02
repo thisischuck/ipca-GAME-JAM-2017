@@ -17,7 +17,7 @@ public class EndMePlz : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag.Equals("Player"))
             if (Input.GetKey(KeyCode.E))
